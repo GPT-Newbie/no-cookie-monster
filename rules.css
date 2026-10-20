@@ -1,0 +1,21 @@
+/* Instantly suppress Google Funding Choices consent tree and overlays */
+.fc-consent-root,
+.fc-dialog-overlay,
+.fc-dialog-container,
+.fc-dialog {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
+/* Force-restore page scrollability when sites apply freeze classes */
+html,
+body {
+  overflow: auto !important;
+  position: static !important;
+  height: auto !important;
+}

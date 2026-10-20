@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "No Cookie Monster!",
+  "version": "1.2.0",
+  "description": "Blocks cookie dialogs, suppresses trackers, and disables third-party cookies by default.",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "permissions": [
+    "privacy",
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_trackers",
+        "enabled": true,
+        "path": "network_rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["rules.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
